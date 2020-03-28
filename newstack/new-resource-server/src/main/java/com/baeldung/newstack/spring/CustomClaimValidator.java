@@ -35,7 +35,6 @@ public class CustomClaimValidator implements OAuth2TokenValidator<Jwt> {
     }
 
     private boolean verifyClaims(Map<String, Object> claims){
-        System.out.println(claims);
         final String username = (String) claims.get(USER_NAME_CLAIM);
         return isValidUserLength(username) && isValidUserDomain(username);
     }

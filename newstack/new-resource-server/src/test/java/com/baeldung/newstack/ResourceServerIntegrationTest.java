@@ -64,6 +64,19 @@ public class ResourceServerIntegrationTest {
         assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCode());
     }
 
+    @Test
+    public void testCustomAuthorityWithValidSuperUser(){
+        Response response = RestAssured.given().header("Authorization", "Bearer " + this.validUserTokenValue).get(URL_PREFIX + "/manager/info");
+        assertEquals(HttpStatus.OK.value(), response.getStatusCode());
+    }
+
+    @Test
+    public void testCustomAuthorityWithInvalidSuperUser(){
+        Response response = RestAssured.given().header("Authorization", "Bearer " + this.incorrectUserTokenValue).get(URL_PREFIX + "/manager/info");
+        assertEquals(HttpStatus.UNAUTHORIZED.value(), response.getStatusCode());
+    }
+
+
     private String getAuthCookie(String userName, String userPass){
         final Map<String, String> params = new HashMap<>();
         params.put("grant_type", "password");

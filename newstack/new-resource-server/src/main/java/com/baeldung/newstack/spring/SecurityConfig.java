@@ -1,6 +1,7 @@
 package com.baeldung.newstack.spring;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -15,6 +16,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
     private String issuer;
+
+    @Bean
+    AuthoritiesExtractor authoritiesExtractor(){
+        return new CustomAuthorityExtractor();
+    }
 
     @Bean
     JwtDecoder jwtDecoder(){
