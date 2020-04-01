@@ -67,7 +67,7 @@ public class ResourceServerIntegrationTest {
     @Test
     public void testCustomAuthorityWithValidSuperUser(){
         Response response = RestAssured.given().header("Authorization", "Bearer " + this.validUserTokenValue).get(URL_PREFIX + "/manager/info");
-        assertEquals(HttpStatus.OK.value(), response.getStatusCode());
+        assertEquals(HttpStatus.FORBIDDEN.value(), response.getStatusCode());
     }
 
     @Test

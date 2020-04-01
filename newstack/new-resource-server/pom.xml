@@ -33,12 +33,6 @@
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.security.oauth.boot</groupId>
-            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-            <version>${oauth.autoconfigure.version}</version>
-        </dependency>
-
         <!-- persistence -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -111,7 +105,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>13</java.version>
         <oauth.version>2.3.5.RELEASE</oauth.version>
-        <oauth.autoconfigure.version>2.2.5.RELEASE</oauth.autoconfigure.version>
         <jwt.version>1.0.10.RELEASE</jwt.version>
     </properties>
 
